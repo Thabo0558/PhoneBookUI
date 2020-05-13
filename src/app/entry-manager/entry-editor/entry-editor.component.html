@@ -1,0 +1,42 @@
+<div class="dialog-content-wrapper pb-0">
+    <mat-toolbar matDialogTitle class="mat-accent m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title">{{dialogTitle}}</span>
+            <button mat-icon-button (click)="matDialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="column">
+ <div mat-dialog-content class="p-12 pb-0 m-0 column" fusePerfectScrollbar  fxLayout="column" >
+      
+        <form [formGroup]="phonebookEntryForm" fxLayout="column">
+            
+          <!--   <mat-form-field appearance="outline" fxFlex>
+                <mat-label>id</mat-label>
+               
+                <input name="id" formControlName="id" matInput required>
+            </mat-form-field> -->
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Name</mat-label>               
+                <input name="name" formControlName="name" matInput required>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Number</mat-label>               
+                <input name="number" formControlName="number" matInput required>
+            </mat-form-field>
+        </form>
+        <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+            <button mat-button
+                class="btn btn-primary"
+                (click)="save(); matDialogRef.close(['save', phonebookEntryForm])"             
+                aria-label="SAVE">
+                SAVE
+            </button>
+        </div>
+    </div>
+        
+    </div>
+   
+</div>

@@ -1,0 +1,42 @@
+.app-phonebook-list{
+    width: 100%;
+
+    .container {
+        max-width: 900px;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: auto;
+        max-width: 80%;
+        padding-left: 80px;
+        padding-top: 8%;
+    }
+    
+    .example-card {
+        padding-left: 105px;
+        margin: 20px;
+    }
+    
+    .example-full-width {
+        width: 100%;
+    }
+    
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-gap: 20px;
+        padding-left: 100px;
+        align-items: stretch;
+    }
+    
+    .example-card-two {
+        max-width: 400px;
+        padding: 20px;
+        margin: 16px;
+    }
+    
+    .example-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+    }
+}

@@ -1,0 +1,63 @@
+<p>search bar 
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="phonebook">
+      </mat-form-field>
+</p>
+
+<div id="phonebook-list">
+    <table mat-table #table [dataSource]="dataSource" matSort matSortStart="desc" width="100%">
+                
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell class="py-8" *matCellDef="let phonebook">
+                <p class="text-truncate font-weight-400">                           
+                   
+                    <span>{{phonebook.id}}</span>
+                </p>
+            </mat-cell>
+        </ng-container>       
+        
+        <ng-container matColumnDef="phonebookname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+            <mat-cell class="py-8" *matCellDef="let phonebook">
+                <p class="text-truncate font-weight-400">                           
+                   
+                    <span>{{phonebook.name}}</span>
+                </p>
+            </mat-cell>
+        </ng-container>      
+        <ng-container matColumnDef="entries">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Entries</mat-header-cell>
+            <mat-cell class="py-8" *matCellDef="let phonebook">
+                <p class="text-truncate font-weight-400">                           
+                    <a [routerLink]='"/phonebookEntries/"+phonebook.id'>
+                        <span>View Entries</span> 
+                    </a>
+                </p>
+            </mat-cell>
+        </ng-container>      
+        <ng-container matColumnDef="manage">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Manage</mat-header-cell>
+            <mat-cell class="py-8" *matCellDef="let phonebook">
+                <a (click)="editPhonebook(phonebook)">                           
+                    <span> edit </span>
+                </a>
+
+                <a  (click)="deletePhonebook(phonebook)">                           
+                    <span>| delete</span>
+                 </a>
+            </mat-cell>
+        </ng-container>       
+
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+        
+        <mat-row *matRowDef="let phonebook; columns: displayedColumns;"              
+        matRipple>
+        </mat-row>
+
+    </table>
+    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+
+</div>

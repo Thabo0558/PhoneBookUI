@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+
+    <h1> Entries for {{phonebook.name}}</h1>
+</div>
+
+<p> 
+
+<button class="btn btn-danger" (click)="addNewEntry()">Add New Entry</button>
+</p>
+<app-entry-list [phonebookId]='phonebookId'></app-entry-list>
